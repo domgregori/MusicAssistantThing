@@ -1,5 +1,5 @@
 import { DeskThing } from '@deskthing/server'
-import { DESKTHING_EVENTS } from '@deskthing/types'
+import { DESKTHING_EVENTS, type AppSettings } from '@deskthing/types'
 import { registerLibraryHandlers } from './handlers/library'
 import { registerMusicHandlers } from './handlers/music'
 import { registerPlayerHandlers } from './handlers/players'
@@ -8,8 +8,9 @@ import { SETTING_SERVER_URL, SETTING_TOKEN, setupSettings } from './ma/settings'
 
 let lastConnectionKey: string | null = null
 
-const connectFromSettings = async () => {
-  const settings = await DeskThing.getSettings()
+// Uses the settings passed in directly - re-fetching via DeskThing.getSettings()
+// here would trigger another 'settings' event and loop forever.
+const applySettings = (settings: AppSettings | null | undefined) => {
   const url = (settings?.[SETTING_SERVER_URL]?.value as string | undefined)?.trim()
   const token = (settings?.[SETTING_TOKEN]?.value as string | undefined)?.trim()
 
@@ -30,9 +31,11 @@ const start = async () => {
   registerPlayerHandlers()
   registerLibraryHandlers()
 
-  DeskThing.on(DESKTHING_EVENTS.SETTINGS, connectFromSettings)
+  DeskThing.on(DESKTHING_EVENTS.SETTINGS, (settings) => {
+    applySettings(settings as unknown as AppSettings)
+  })
 
-  await connectFromSettings()
+  applySettings(await DeskThing.getSettings())
 }
 
 const stop = async () => {
