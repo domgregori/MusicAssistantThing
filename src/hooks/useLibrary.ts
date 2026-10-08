@@ -1,7 +1,7 @@
 import { DeskThing } from '@deskthing/client'
 import type { SocketData } from '@deskthing/types'
 import { useCallback, useState } from 'react'
-import type { LibraryCategory, LibraryResultItem } from '../types'
+import type { LibraryCategory, LibraryResultItem } from '../../shared/types'
 
 const awaitLibraryResponse = (expectedRequest: 'searchResults' | 'browseResults'): Promise<LibraryResultItem[]> =>
   new Promise((resolve) => {

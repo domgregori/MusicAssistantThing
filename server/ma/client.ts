@@ -1,7 +1,7 @@
 import { DeskThing } from '@deskthing/server'
 import { MusicAssistantClient, type ConnectionState } from 'music-assistant-client'
 import WebSocket from 'ws'
-import type { MaConnectionState, PlayerSummary } from '../types'
+import type { MaConnectionState, PlayerSummary } from '../../shared/types'
 import { getActivePlayerId } from './activePlayer'
 import { buildSongData } from './songMapper'
 

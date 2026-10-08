@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useLibraryBrowse, useLibrarySearch, playLibraryItem } from '../hooks/useLibrary'
-import type { LibraryCategory, LibraryResultItem } from '../types'
+import type { LibraryCategory, LibraryResultItem } from '../../shared/types'
 
 const KEYBOARD_ROWS = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm']
 

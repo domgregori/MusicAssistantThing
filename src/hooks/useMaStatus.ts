@@ -1,7 +1,7 @@
 import { DeskThing } from '@deskthing/client'
 import type { SocketData } from '@deskthing/types'
 import { useEffect, useState } from 'react'
-import type { MaStatusPayload } from '../types'
+import type { MaStatusPayload } from '../../shared/types'
 
 export const useMaStatus = () => {
   const [status, setStatus] = useState<MaStatusPayload>({ state: 'disconnected' })

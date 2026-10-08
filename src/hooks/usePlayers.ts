@@ -1,7 +1,7 @@
 import { DeskThing } from '@deskthing/client'
 import type { SocketData } from '@deskthing/types'
 import { useEffect, useState } from 'react'
-import type { PlayerSummary } from '../types'
+import type { PlayerSummary } from '../../shared/types'
 
 export const usePlayers = () => {
   const [players, setPlayers] = useState<PlayerSummary[]>([])

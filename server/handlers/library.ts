@@ -3,7 +3,7 @@ import type { SocketData } from '@deskthing/types'
 import type { MA, MusicAssistantClient } from 'music-assistant-client'
 import { getActivePlayerId } from '../ma/activePlayer'
 import { getMaClient } from '../ma/client'
-import type { LibraryCategory, LibraryResultItem } from '../types'
+import type { LibraryCategory, LibraryResultItem } from '../../shared/types'
 
 type AnyLibraryItem = MA.Track | MA.Album | MA.Artist | MA.Playlist | MA.ItemMapping
 

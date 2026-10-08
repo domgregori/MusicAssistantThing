@@ -1,4 +1,4 @@
-import type { MaStatusPayload } from '../types'
+import type { MaStatusPayload } from '../../shared/types'
 
 type Props = {
   status: MaStatusPayload

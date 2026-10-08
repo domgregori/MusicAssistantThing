@@ -1,4 +1,4 @@
-import type { PlayerSummary } from '../types'
+import type { PlayerSummary } from '../../shared/types'
 
 type Props = {
   players: PlayerSummary[]
